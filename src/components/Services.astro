@@ -1,0 +1,98 @@
+  <!-- ============================================ -->
+  <!--                  Services                    -->
+  <!-- ============================================ -->
+
+  <section id="services" class="services">
+    <!-- Get Icons From flaticon.com -->
+    <div class="card">
+      <h2>Feral Forged Art pieces are handmade by Ray Higbee. <br /> Pieces are made from thrifted items, pieces of nature, and ethically collected bones.</h2>
+    </div>
+  </section>
+
+  <style lang="less">
+    /* Mobile (Screens up to 767px) */
+@media only screen and (min-width: 0em) {
+  .services {
+    width: 90%;
+    max-width: (1320/16em);
+    margin: auto;
+    margin-top: (-37/16em);
+    margin-bottom: (50/16em);
+    padding: (10/16em) (10/16em); 
+    background: #fff;
+    box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.05);
+    border-top: (6/16em) solid var(--primary);
+    border-radius: (5/16em);
+    position: relative;
+    z-index: 100;
+
+    .card {
+      width: 100%;
+      margin: auto;
+      display: block;
+
+      h2 {
+        font-family: 'Bona Nova SC', serif;
+        /* Mobile Font Size: 20px equivalent */
+        font-size: (10/16em); 
+        font-weight: 700;
+        line-height: 1.4em;
+        text-align: center;
+        margin-bottom: 0;
+        color: #1a1a1a;
+      }
+    }
+
+    body.dark-mode & {
+      background: var(--medium, #1c1a17);
+      border-top-color: var(--primaryDark);
+
+      .card h2 {
+        color: #fff;
+      }
+    }
+  }
+}
+
+/* Tablet (Screens 768px to 1299px) */
+@media only screen and (min-width: 768px) {
+  .services {
+    margin-top: (-67/16em);
+    /* Adjusted fluid font scaling for tablet sizing */
+    font-size: ~"min(1.4vw, 1em)";
+    width: 95%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .card {
+      max-width: (750/16em); 
+      margin: 0 auto;
+
+      h2 {
+        /* Tablet Font Size: 26px equivalent */
+        font-size: (26/16em);
+        line-height: 1.5em;
+      }
+    }
+  }
+}
+
+/* Large Desktop (Screens 1300px and up) */
+@media only screen and (min-width: 1300px) {
+  .services {
+    margin-top: (-97/16em);
+    font-size: .75em; /* Resets fluid typography scaling to standard root em sizing */
+    padding: (25/16em) (2/16em);
+
+    .card {
+      max-width: (1000/16em);
+
+      h2 {
+        /* Desktop Font Size: Returns to the full 32px equivalent */
+        font-size: (32/16em);
+      }
+    }
+  }
+}
+  </style>
