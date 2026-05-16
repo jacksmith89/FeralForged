@@ -1,501 +1,117 @@
 ---
-import navData from "../data/navData.json";
-import DarkModeToggle from "./DarkModeToggle.astro";
-import LogoBlack from "../assets/svgs/logo-black.svg";
-import { Image } from "astro:assets";
+// Header.astro
 ---
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
 
-<!-- ============================================ --><!--                 Navigation                   --><!-- ============================================ -->
-<header id="cs-navigation">
-  <div class="cs-container">
-    <!--Nav Logo-->
-    <a href="/" class="cs-logo" aria-label="back to home">
-      <LogoBlack />
-    </a>
-    <!--Navigation List-->
-    <nav class="cs-nav" role="navigation">
-      <!--Mobile Nav Toggle-->
-      <button
-        class="cs-toggle"
-        id="mobile-menu-toggle"
-        aria-label="mobile menu toggle"
-        aria-expanded="false"
-        aria-controls="cs-expanded-ul"
-      >
-        <div class="cs-box" aria-hidden="true">
-          <span class="cs-line cs-line1" aria-hidden="true"></span>
-          <span class="cs-line cs-line2" aria-hidden="true"></span>
-          <span class="cs-line cs-line3" aria-hidden="true"></span>
+<header id="main-header">
+    <div class="cs-container">
+        <!-- Logo Text / Brand -->
+        <a href="#hero-998" class="cs-logo">FERAL FORGED ART</a>
+        
+        <!-- Social & Contact Links -->
+        <div class="cs-social-group">
+            <!-- Instagram (Active) -->
+            <a href="https://instagram.com/feral.forged" class="cs-social-link" target="_blank" rel="noopener noreferrer" aria-label="Visit our Instagram">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.444-.048-3.298c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/>
+                </svg>
+                <span class="cs-social-text"> @feral.forged</span>
+            </a>
+
+            <!-- Facebook (Commented Out)
+            <a href="https://facebook.com/feralforgedart" class="cs-social-link" target="_blank" rel="noopener noreferrer" aria-label="Visit our Facebook">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0 0 3.604 0 8.049c0 4.004 2.925 7.346 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/>
+                </svg>
+                <span class="cs-social-text">Feral Forged Art</span>
+            </a>
+            -->
+
+            <!-- Email (Commented Out)
+            <a href="mailto:contact@feralforgedart.com" class="cs-social-link" aria-label="Send us an email">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"/>
+                </svg>
+                <span class="cs-social-text">contact@feralforgedart.com</span>
+            </a>
+            -->
         </div>
-      </button>
-      <!-- This also allows for easy substitution of CodeStitch navigations. Just replace the .cs-ul-wrapper in the new navigation with this one -->
-      <div class="cs-ul-wrapper">
-        <ul id="cs-expanded-ul" class="cs-ul">
-          {
-            navData.map((entry) => (
-              <li class="cs-li">
-                <a
-                  href={entry.url}
-                  class:list={[
-                    "cs-li-link",
-                    { "cs-active": Astro.url.pathname === entry.url },
-                  ]}
-                >
-                  {entry.key}
-                </a>
-              </li>
-            ))
-          }
-        </ul>
-      </div>
-    </nav>
-    <a href="/contact" class="cs-button-solid cs-nav-button">Contact Us</a>
-    <!--Dark Mode toggle, uncomment button code if you want to enable a dark mode toggle-->
-    <DarkModeToggle />
-  </div>
+    </div>
 </header>
 
 <style lang="less">
-  /*-- -------------------------- -->
-<---     Mobile Navigation      -->
-<--- -------------------------- -*/
-
-  /* Mobile - 1023px */
-  @media only screen and (max-width: 63.9375rem) {
-    body {
-      &.cs-open {
-        overflow: hidden;
-      }
-    }
-
-    #cs-navigation {
-      /* remove the font family so the Stitch inherits the fonts from your global stylesheet */
-      font-family: "Roboto", "Arial", sans-serif;
-      width: 100%;
-      /* prevents padding from affecting height and width */
-      box-sizing: border-box;
-      padding: (12/16rem) (16/16rem);
-      background-color: #fff;
-      box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-      position: fixed;
-      z-index: 10000;
-
-      &:before {
-        /* black blurred overlay */
-        content: "";
-        width: 0%;
-        height: 100vh;
-        background: rgba(0, 0, 0, 0.6);
-        opacity: 0;
-        display: block;
-        position: absolute;
-        top: 100%;
-        right: 0;
-        z-index: -11;
-        transition:
-          width 0.5s,
-          opacity 0.3s;
-        -webkit-backdrop-filter: blur(10px);
-        backdrop-filter: blur(10px);
-      }
-
-      &.cs-active {
-        &:before {
-          width: 100%;
-          opacity: 1;
-        }
-
-        .cs-ul-wrapper {
-          opacity: 1;
-          visibility: visible;
-          transform: scaleX(1);
-          transition-delay: 0.2s;
-        }
-
-        .cs-li {
-          opacity: 1;
-          transform: translateX(0);
-        }
-      }
-
-      .cs-container {
+    #main-header {
         width: 100%;
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-      }
+        background-color: #1C1A17; 
+        border-bottom: 1px solid rgba(138, 154, 134, 0.15); 
+        padding: (20/16rem) 0;
+        
+        .cs-container {
+            width: 100%;
+            max-width: (1322/16em);
+            margin: auto;
+            padding: 0 (16/16rem);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: (20/16rem);
 
-      .cs-logo {
-        width: 40%;
-        max-width: (146/16rem);
-        height: 100%;
-        margin: 0 auto 0 0;
-        /* prevents padding from affecting height and width */
-        box-sizing: border-box;
-        padding: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 10;
-
-        img {
-          width: 100%;
-          height: 100%;
-          /* ensures the image never overflows the container. It stays contained within it's width and height and expands to fill it then stops once it reaches an edge */
-          object-fit: contain;
-          /* places the image to the left edge of the parent */
-          object-position: left;
+            @media only screen and (max-width: 44rem) {
+                flex-direction: column;
+                text-align: center;
+            }
         }
-      }
-
-      .cs-toggle {
-        /* 44px - 48px */
-        width: clamp(2.75rem, 6vw, 3rem);
-        height: clamp(2.75rem, 6vw, 3rem);
-        margin: 0 0 0 auto;
-        background-color: transparent;
-        border: none;
-        border-radius: (4/16rem);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
-      .cs-active {
-        .cs-line1 {
-          top: 50%;
-          transform: translate(-50%, -50%) rotate(225deg);
-        }
-
-        .cs-line2 {
-          top: 50%;
-          transform: translate(-50%, -50%) translateY(0) rotate(-225deg);
-          transform-origin: center;
-        }
-
-        .cs-line3 {
-          opacity: 0;
-          bottom: 100%;
-        }
-      }
-
-      .cs-box {
-        /* 24px - 28px */
-        width: clamp(1.5rem, 2vw, 1.75rem);
-        /* 14px - 16px */
-        height: clamp(0.875rem, 1.5vw, 1rem);
-        position: relative;
-      }
-
-      .cs-line {
-        width: 100%;
-        height: 2px;
-        background-color: #1a1a1a;
-        border-radius: 2px;
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-      }
-
-      .cs-line1 {
-        top: 0;
-        transition:
-          transform 0.5s,
-          top 0.3s,
-          left 0.3s;
-        animation-duration: 0.7s;
-        animation-timing-function: ease;
-        animation-direction: normal;
-        animation-fill-mode: forwards;
-        transform-origin: center;
-      }
-
-      .cs-line2 {
-        top: 50%;
-        transform: translateX(-50%) translateY(-50%);
-        transition:
-          top 0.3s,
-          left 0.3s,
-          transform 0.5s;
-        animation-duration: 0.7s;
-        animation-timing-function: ease;
-        animation-direction: normal;
-        animation-fill-mode: forwards;
-      }
-
-      .cs-line3 {
-        bottom: 0;
-        transition:
-          bottom 0.3s,
-          opacity 0.3s;
-      }
-
-      .cs-ul-wrapper {
-        height: 100vh;
-        background-color: #fff;
-        box-shadow: inset rgba(0, 0, 0, 0.2) 0px 8px 24px;
-        opacity: 0;
-        visibility: hidden;
-        position: absolute;
-        top: 100%;
-        right: 0;
-        left: auto;
-        z-index: -1;
-        overflow: hidden;
-        transform: scaleX(0);
-        transition:
-          transform 0.4s,
-          opacity 0.3s;
-        transform-origin: top right;
-      }
-
-      .cs-ul {
-        width: auto;
-        min-width: 40%;
-        height: 65vh;
-        margin: 0;
-        /* 28px - 40px */
-        padding: (48/16rem) clamp(1.75rem, 3vw, 2.5rem) (32/16rem) (70/16rem);
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: flex-end;
-        gap: (20/16rem);
-        overflow: scroll;
-      }
-
-      .cs-li {
-        text-align: right;
-        list-style: none;
-        width: 100%;
-        margin-right: 0;
-        opacity: 0;
-        /* transition from these values */
-        transform: translateX(-40/16rem);
-        transition:
-          transform 0.6s,
-          opacity 0.9s;
-
-        &:nth-of-type(1) {
-          transition-delay: 0.05s;
-        }
-        &:nth-of-type(2) {
-          transition-delay: 0.1s;
-        }
-        &:nth-of-type(3) {
-          transition-delay: 0.15s;
-        }
-        &:nth-of-type(4) {
-          transition-delay: 0.2s;
-        }
-        &:nth-of-type(5) {
-          transition-delay: 0.25s;
-        }
-        &:nth-of-type(6) {
-          transition-delay: 0.3s;
-        }
-        &:nth-of-type(7) {
-          transition-delay: 0.35s;
-        }
-        &:nth-of-type(8) {
-          transition-delay: 0.4s;
-        }
-        &:nth-of-type(9) {
-          transition-delay: 0.45s;
-        }
-      }
-
-      .cs-li-link {
-        /* 16px - 24px */
-        font-size: clamp(1rem, 2.5vw, 1.5rem);
-        line-height: 1.2em;
-        text-decoration: none;
-        margin: 0;
-        color: var(--headerColor);
-        display: inline-block;
-        position: relative;
-
-        &:before {
-          /* active state underline */
-          content: "";
-          width: 100%;
-          height: 1px;
-          background: currentColor;
-          opacity: 1;
-          display: none;
-          position: absolute;
-          bottom: (-2/16rem);
-          left: 0;
-        }
-
-        &.cs-active {
-          &:before {
-            display: block;
-          }
-        }
-      }
-
-      .cs-button-solid {
-        display: none;
-      }
-    }
-  }
-
-  /* Dark Mode */
-  @media only screen and (max-width: 63.9375rem) {
-    body.dark-mode {
-      #cs-navigation {
-        background-color: var(--dark);
 
         .cs-logo {
-          /* makes it white */
-          filter: grayscale(1) brightness(1000%);
+            font-family: 'Cinzel', serif;
+            font-size: (20/16rem);
+            font-weight: 600;
+            color: #F4F0EA; 
+            text-decoration: none;
+            letter-spacing: 0.12em;
+            white-space: nowrap;
         }
 
-        .cs-line {
-          background-color: #fff;
+        .cs-social-group {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: (24/16rem);
         }
 
-        .cs-ul-wrapper {
-          background-color: var(--medium);
+        .cs-social-link {
+            color: #8A9A86; 
+            display: inline-flex;
+            align-items: center;
+            gap: (8/16rem);
+            text-decoration: none;
+            
+            /* Add these to create the default container shape */
+            background-color: transparent;
+            padding: (6/16rem) (12/16rem);
+            border-radius: 0.5rem;
+            
+            /* Update transition to smoothly animate the background change */
+            transition: color 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
+
+            svg {
+                flex-shrink: 0;
+            }
+
+            &:hover {
+                color: #6B1D1D; /* Oxblood Red text/icon */
+                background-color: #F4F0EA; /* Bone White background capsule */
+                transform: translateY(-1px);
+            }
         }
 
-        .cs-li-link {
-          color: var(--bodyTextColorWhite);
+        .cs-social-text {
+            font-family: "Cormorant Garamond", serif;
+            font-size: (24/16rem);
+            font-weight: 700;
         }
-      }
     }
-  }
-
-  /*-- -------------------------- -->
-<---     Desktop Navigation     -->
-<--- -------------------------- -*/
-
-  /* Small Desktop - 1024px */
-  @media only screen and (min-width: 64rem) {
-    #cs-navigation {
-      /* remove the font family so the Stitch inherits the fonts from your global stylesheet */
-      font-family: "Roboto", "Arial", sans-serif;
-      width: 100%;
-      /* prevents padding from affecting height and width */
-      box-sizing: border-box;
-      padding: 0 (16/16rem);
-      background-color: #fff;
-      box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-      position: fixed;
-      z-index: 10000;
-
-      .cs-container {
-        width: 100%;
-        max-width: (1280/16rem);
-        margin: auto;
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        gap: (24/16rem);
-      }
-
-      .cs-toggle {
-        display: none;
-      }
-
-      .cs-logo {
-        width: 18.4%;
-        max-width: (350/16rem);
-        height: (65/16rem);
-        /* margin-right auto pushes everything away from it to the right */
-        margin: 0 auto 0 0;
-        padding: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 100;
-
-        img {
-          width: 100%;
-          height: 100%;
-          /* ensures the image never overflows the container. It stays contained within it's width and height and expands to fill it then stops once it reaches an edge */
-          object-fit: contain;
-        }
-      }
-
-      .cs-ul {
-        width: 100%;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        /* 20px - 36px */
-        gap: clamp(1.25rem, 2.6vw, 2.25rem);
-      }
-
-      .cs-li {
-        list-style: none;
-        padding: (32/16rem) 0;
-        /* prevent flexbox from squishing it */
-        flex: none;
-      }
-
-      .cs-li-link {
-        /* 14px - 16px */
-        font-size: clamp(0.875rem, 1vw, 1rem);
-        line-height: 1.5em;
-        text-decoration: none;
-        margin: 0;
-        color: var(--bodyTextColor);
-        display: block;
-        position: relative;
-        &:hover {
-          &:before {
-            width: 100%;
-          }
-        }
-
-        &.cs-active {
-          &:before {
-            width: 100%;
-          }
-        }
-
-        &:before {
-          /* active state underline */
-          content: "";
-          width: 0%;
-          height: 2px;
-          background: var(--primary);
-          opacity: 1;
-          display: block;
-          position: absolute;
-          bottom: (0/16rem);
-          left: 0;
-          transition: width 0.3s;
-        }
-      }
-    }
-  }
-
-  /* Dark Mode */
-  @media only screen and (min-width: 64rem) {
-    body.dark-mode {
-      #cs-navigation {
-        background-color: var(--dark);
-
-        .cs-logo {
-          /* makes it turn white */
-          filter: grayscale(1) brightness(1000%);
-        }
-
-        .cs-li-link {
-          color: var(--bodyTextColorWhite);
-        }
-
-        .cs-li-link {
-          &:before {
-            background-color: var(--primaryLight);
-          }
-        }
-      }
-    }
-  }
 </style>

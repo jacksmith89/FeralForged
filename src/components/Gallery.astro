@@ -1,0 +1,156 @@
+---
+import { Picture } from "astro:assets";
+
+// Automatically import all .webp images from the portfolio directory
+const images = await Astro.glob("../assets/images/portfolio/*.webp");
+const galleryImages = images.map((img) => img.default);
+---
+
+<!-- 1. Load GLightbox CSS from CDN directly to ensure it renders universally -->
+<link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css"
+/>
+
+<section id="gallery">
+    <div class="cs-container">
+        <div class="cs-image-grid">
+            {
+                galleryImages.map((image, index) => (
+                    <a
+                        href={image.src}
+                        class="cs-lightbox-trigger glightbox"
+                        data-gallery="feral-gallery"
+                    >
+                        <Picture
+                            class="cs-picture"
+                            src={image}
+                            width={420}
+                            formats={["webp"]}
+                            alt={`Ethically sourced natural art composition ${index + 1}`}
+                        />
+                    </a>
+                ))
+            }
+        </div>
+    </div>
+</section>
+
+<!-- 2. Load GLightbox JS from CDN and initialize it inside a reliable execution block -->
+<script
+    is:inline
+    src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"
+></script>
+
+<script is:inline>
+    function initLightbox() {
+        if (typeof GLightbox !== "undefined") {
+            GLightbox({
+                selector: ".glightbox",
+                loop: true,
+                openEffect: "zoom",
+                closeEffect: "zoom",
+            });
+        }
+    }
+
+    // Runs immediately on standard page loads
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initLightbox);
+    } else {
+        initLightbox();
+    }
+
+    // Support for View Transitions if you happen to be using them
+    document.addEventListener("astro:page-load", initLightbox);
+</script>
+
+<style lang="less">
+    #gallery {
+        text-align: center;
+        padding: var(--sectionPadding);
+        position: relative;
+        overflow: hidden;
+
+        .cs-container {
+            width: 100%;
+            max-width: (1322/16em);
+            margin: auto;
+        }
+
+        .cs-topper {
+            display: block;
+            text-align: center;
+            margin-bottom: (16/16rem);
+        }
+
+        .cs-title {
+            text-align: center;
+            max-width: (621/16rem);
+            margin: 0 auto (40/16rem);
+        }
+
+        .cs-image-grid {
+            width: 100%;
+            /* Set the number of columns for mobile */
+            column-count: 2;
+            /* The gap between columns */
+            column-gap: (12/16rem);
+            margin: 0 auto;
+            padding: 0;
+
+            /* Responsive adjustments for bigger screens */
+            @media only screen and (min-width: 48rem) {
+                column-count: 3;
+                column-gap: (20/16rem);
+            }
+            @media only screen and (min-width: 64rem) {
+                column-count: 4;
+            }
+        }
+
+        .cs-lightbox-trigger {
+            display: block;
+            position: relative;
+            border-radius: 1rem;
+            overflow: hidden;
+            cursor: pointer;
+            margin-bottom: (
+                12/16rem
+            ); /* Creates the gap below each image in a column */
+
+            /* Prevents an element from being split across two columns */
+            break-inside: avoid;
+
+            transition: transform 0.3s ease;
+            &:hover {
+                transform: scale(1.02);
+            }
+
+            @media only screen and (min-width: 48rem) {
+                margin-bottom: (20/16rem);
+            }
+        }
+
+        .cs-picture {
+            display: block;
+            width: 100%;
+            height: auto;
+
+            img {
+                width: 100%;
+                /* Tells the image to scale naturally based on its width */
+                height: auto;
+                display: block;
+            }
+        }
+    }
+
+    body.dark-mode {
+        #gallery {
+            .cs-title {
+                color: var(--bodyTextColorWhite);
+            }
+        }
+    }
+</style>
